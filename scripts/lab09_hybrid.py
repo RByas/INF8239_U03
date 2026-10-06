@@ -44,7 +44,7 @@ for user_id in evaluable["userId"].unique():
     weights = np.clip(history["rating"].to_numpy() - 2.5, 0.1, None)
     profile = genre_matrix[history_rows].multiply(weights[:, None]).sum(axis=0) / weights.sum()
     candidate_rows = [movie_row[int(item)] for item in collaborative["movieId"]]
-    content_scores = cosine_similarity(profile, genre_matrix[candidate_rows]).ravel()
+    content_scores = cosine_similarity(np.asarray(profile), genre_matrix[candidate_rows]).ravel()
     content_min, content_max = content_scores.min(), content_scores.max()
     collaborative["content_score"] = (content_scores - content_min) / max(content_max - content_min, 1e-9)
     collaborative["hybrid_score"] = args.alpha * collaborative["normalized"] + (1 - args.alpha) * collaborative["content_score"]
