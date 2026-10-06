@@ -69,3 +69,41 @@ criterio de desempate (popularidad ponderada o año) y enriquecer los
 atributos (tags de MovieLens, año) para reducir empates; luego comparar contra
 la línea base con precision@k, cobertura y diversidad.
 
+## Redacción LAB09
+
+Resultado principal:
+El híbrido (factorización matricial con 20 factores y 12 épocas, combinada con
+similitud de géneros, alpha = 0.75) obtuvo RMSE = 1.026, hit rate@10 = 3.75% y
+cobertura de catálogo = 7.75%. El RMSE es casi igual a la desviación estándar
+de los ratings (1.04), por lo que la predicción de rating mejora muy poco
+respecto a una estimación constante. El hit rate es bajo en términos
+absolutos.
+
+Evidencia utilizada:
+MovieLens Latest Small (100,836 ratings, 610 usuarios, densidad 1.70%),
+partición temporal leave-one-out. Métricas en reports/hybrid_metrics.json y
+fallback en reports/cold_start_fallback.csv. Parámetros: factors=20, epochs=12,
+alpha=0.75. Entrenamiento: 19.5 s.
+
+Qué representa la similitud:
+El puntaje híbrido combina el puntaje colaborativo normalizado (alpha = 0.75)
+con la similitud coseno entre el perfil de géneros del usuario (promedio
+ponderado de lo que valoró, centrado en 2.5) y cada película candidata
+(1 - alpha = 0.25). Representa afinidad por patrones de usuarios y por
+géneros, no calidad ni causalidad.
+
+Problema de cold start observado:
+Usuarios o películas sin historial no tienen factores latentes. La política
+es mostrar popularidad por cantidad y media, que no es personalizada
+(reports/cold_start_fallback.csv).
+
+Riesgo de sobre-especialización:
+La cobertura de 7.75% indica que el sistema concentra sus recomendaciones en
+una fracción pequeña del catálogo; el 92% de las películas nunca se
+recomienda. Esto limita la diversidad y la serendipia.
+
+Decisión o siguiente experimento:
+Calcular la misma métrica (hit rate@10 y cobertura) para la línea base de
+popularidad y comparar. Probar valores de alpha (0.5, 0.75, 0.9) y más
+épocas o factores, y observar si mejoran el hit rate y la cobertura sin
+empeorar el RMSE.
