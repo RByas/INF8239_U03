@@ -1,0 +1,4 @@
+query,genres,top_score,tied_movies
+Toy Story (1995),Adventure|Animation|Children|Comedy|Fantasy,1.0,12
+Heat (1995),Action|Crime|Thriller,1.0,65
+Sabrina (1995),Comedy|Romance,1.0,362

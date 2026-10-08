@@ -2,67 +2,64 @@ from __future__ import annotations
 
 import argparse
 import json
-from time import perf_counter
 
-import numpy as np
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics import root_mean_squared_error
-from sklearn.metrics.pairwise import cosine_similarity
+import pandas as pd
 
-from inf8239_u03.config import MOVIELENS_DIR, ROOT
+from inf8239_u03.config import MOVIELENS_DIR, RANDOM_STATE, ROOT
 from inf8239_u03.data import load_movielens
-from inf8239_u03.metrics import catalog_coverage, hit_rate_at_k
-from inf8239_u03.recommenders import MatrixFactorization, temporal_leave_one_out
+from inf8239_u03.recommenders import profile_recommendations, run_experiment
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--factors", type=int, default=20)
 parser.add_argument("--epochs", type=int, default=12)
 parser.add_argument("--alpha", type=float, default=0.75)
+parser.add_argument("--seed", type=int, default=RANDOM_STATE)
 args = parser.parse_args()
 
 ratings, movies = load_movielens(MOVIELENS_DIR)
-train, test = temporal_leave_one_out(ratings)
-start = perf_counter()
-model = MatrixFactorization(factors=args.factors).fit(train, epochs=args.epochs)
-train_seconds = perf_counter() - start
-evaluable = test[test["userId"].isin(model.user_index) & test["movieId"].isin(model.item_index)]
-predictions = [model.predict(row.userId, row.movieId) for row in evaluable.itertuples()]
-rmse = root_mean_squared_error(evaluable["rating"], predictions)
-popular = train.groupby("movieId")["rating"].agg(["mean", "count"]).sort_values(["count", "mean"], ascending=False)
-popular_items = popular.index.tolist()
-movie_table = movies.reset_index(drop=True).copy()
-movie_table["genres_text"] = movie_table["genres"].str.replace("|", " ", regex=False)
-genre_matrix = TfidfVectorizer().fit_transform(movie_table["genres_text"])
-movie_row = {int(movie_id): index for index, movie_id in enumerate(movie_table["movieId"])}
-recommendations = {}
-for user_id in evaluable["userId"].unique():
-    seen = set(train.loc[train["userId"].eq(user_id), "movieId"])
-    collaborative = model.top_n(user_id, seen, 100)
-    collaborative["normalized"] = (collaborative["collaborative_score"] - collaborative["collaborative_score"].min()) / max(collaborative["collaborative_score"].max() - collaborative["collaborative_score"].min(), 1e-9)
-    history = train.loc[train["userId"].eq(user_id) & train["movieId"].isin(movie_row), ["movieId", "rating"]]
-    history_rows = [movie_row[int(item)] for item in history["movieId"]]
-    weights = np.clip(history["rating"].to_numpy() - 2.5, 0.1, None)
-    profile = genre_matrix[history_rows].multiply(weights[:, None]).sum(axis=0) / weights.sum()
-    candidate_rows = [movie_row[int(item)] for item in collaborative["movieId"]]
-    content_scores = cosine_similarity(np.asarray(profile), genre_matrix[candidate_rows]).ravel()
-    content_min, content_max = content_scores.min(), content_scores.max()
-    collaborative["content_score"] = (content_scores - content_min) / max(content_max - content_min, 1e-9)
-    collaborative["hybrid_score"] = args.alpha * collaborative["normalized"] + (1 - args.alpha) * collaborative["content_score"]
-    recommendations[int(user_id)] = collaborative.nlargest(10, "hybrid_score")["movieId"].astype(int).tolist()
+rows, recommender = run_experiment(ratings, movies, args.factors, args.epochs, [args.alpha], args.seed)
+results = pd.DataFrame(rows)
+hybrid = results[results["method"].eq("hybrid")].iloc[0]
+
 metrics = {
-    "rmse": float(rmse),
-    "hit_rate_at_10": hit_rate_at_k(recommendations, evaluable, 10),
-    "catalog_coverage": catalog_coverage(recommendations, len(model.items)),
-    "train_seconds": train_seconds,
+    "rmse": hybrid["rmse"],
+    "rmse_global_mean": hybrid["rmse_global_mean"],
+    "rmse_item_mean": hybrid["rmse_item_mean"],
+    "hit_rate_at_10": hybrid["hit_rate_at_10"],
+    "precision_at_10": hybrid["precision_at_10"],
+    "catalog_coverage": hybrid["catalog_coverage"],
+    "mean_item_popularity": hybrid["mean_item_popularity"],
+    "train_seconds": hybrid["train_seconds"],
+    "model_size_kb": hybrid["model_size_kb"],
+    "evaluated_users": int(hybrid["evaluated_users"]),
     "factors": args.factors,
     "epochs": args.epochs,
     "alpha": args.alpha,
+    "seed": args.seed,
     "cold_start_policy": "popularidad por cantidad y media; no personalizada",
 }
-(ROOT / "reports").mkdir(exist_ok=True)
-(ROOT / "reports/hybrid_metrics.json").write_text(json.dumps(metrics, indent=2), encoding="utf-8")
-cold_start_items = popular_items[:10]
-movies[movies["movieId"].isin(cold_start_items)].set_index("movieId").loc[cold_start_items].reset_index().to_csv(
-    ROOT / "reports/cold_start_fallback.csv", index=False
-)
+metrics = {key: value.item() if hasattr(value, "item") else value for key, value in metrics.items()}
+
+reports = ROOT / "reports"
+runs = reports / "lab09_runs"
+runs.mkdir(parents=True, exist_ok=True)
+name = f"f{args.factors}_e{args.epochs}_a{args.alpha}_s{args.seed}"
+(runs / f"metrics_{name}.json").write_text(json.dumps(metrics, indent=2), encoding="utf-8")
+results.to_csv(runs / f"methods_{name}.csv", index=False)
+(reports / "hybrid_metrics.json").write_text(json.dumps(metrics, indent=2), encoding="utf-8")
+
+profiles = profile_recommendations(recommender, movies)
+profiles.to_csv(runs / f"profiles_{name}.csv", index=False)
+fallback_ids = recommender.popularity(-1, 10)
+movies.set_index("movieId").loc[fallback_ids].reset_index().to_csv(reports / "cold_start_fallback.csv", index=False)
+
 print(json.dumps(metrics, indent=2))
+print("\nComparación de estrategias (mismo corte y semilla):")
+print(results[["method", "alpha", "rmse", "hit_rate_at_10", "precision_at_10", "catalog_coverage", "mean_item_popularity", "train_seconds", "model_size_kb"]].to_string(index=False))
+print("\nRecomendaciones híbridas de ejemplo por perfil:")
+sample = profiles[profiles["method"].eq("hybrid")]
+for (profile, user_id), group in sample.groupby(["profile", "userId"], sort=False):
+    first = group.iloc[0]
+    label = "personalizada" if first["personalized"] else "NO personalizada (fallback de popularidad)"
+    print(f"\n{profile} · userId={user_id} · historial={first['history_size']} · {label}")
+    print(group[["rank", "title", "already_seen"]].to_string(index=False))

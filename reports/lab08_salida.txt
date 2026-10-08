@@ -1,0 +1,74 @@
+Popularidad suavizada:
+                                                      title  ...  weighted_score
+movieId                                                     ...                
+318                       Shawshank Redemption, The (1994)  ...        4.395194
+858                                  Godfather, The (1972)  ...        4.242739
+2959                                     Fight Club (1999)  ...        4.232690
+260              Star Wars: Episode IV - A New Hope (1977)  ...        4.197790
+50                              Usual Suspects, The (1995)  ...        4.196846
+1221                        Godfather: Part II, The (1974)  ...        4.195168
+527                                Schindler's List (1993)  ...        4.187581
+1213                                     Goodfellas (1990)  ...        4.184918
+750      Dr. Strangelove or: How I Learned to Stop Worr...  ...        4.183658
+58559                              Dark Knight, The (2008)  ...        4.183346
+
+[10 rows x 4 columns]
+
+Mismo ranking por media simple (sin suavizar):
+                                                  title  ...  weighted_score
+movieId                                                 ...                
+1178                             Paths of Glory (1957)  ...        4.021612
+1104                  Streetcar Named Desire, A (1951)  ...        4.109959
+2360                  Celebration, The (Festen) (1998)  ...        3.979945
+1217                                        Ran (1985)  ...        4.019211
+318                   Shawshank Redemption, The (1994)  ...        4.395194
+951                             His Girl Friday (1940)  ...        3.981488
+3468                               Hustler, The (1961)  ...        4.000623
+922      Sunset Blvd. (a.k.a. Sunset Boulevard) (1950)  ...        4.077402
+3435                           Double Indemnity (1944)  ...        3.983403
+905                       It Happened One Night (1934)  ...        3.943026
+
+[10 rows x 4 columns]
+
+Películas con una sola valoración: 0
+
+Similares a Toy Story (1995) (12 películas empatan en el puntaje máximo 1.0):
+ rank                                                   title                                      genres  content_score  count  weighted_score
+    1                                   Monsters, Inc. (2001) Adventure|Animation|Children|Comedy|Fantasy            1.0    132        3.840408
+    2                                      Toy Story 2 (1999) Adventure|Animation|Children|Comedy|Fantasy            1.0     97        3.821272
+    3                        Emperor's New Groove, The (2000) Adventure|Animation|Children|Comedy|Fantasy            1.0     37        3.663647
+    4 Asterix and the Vikings (Astérix et les Vikings) (2006) Adventure|Animation|Children|Comedy|Fantasy            1.0      1        3.616822
+    5                                            Moana (2016) Adventure|Animation|Children|Comedy|Fantasy            1.0     10        3.478122
+    6                          Tale of Despereaux, The (2008) Adventure|Animation|Children|Comedy|Fantasy            1.0      1        3.462976
+    7                                        Wild, The (2006) Adventure|Animation|Children|Comedy|Fantasy            1.0      1        3.424514
+    8                                            Turbo (2013) Adventure|Animation|Children|Comedy|Fantasy            1.0      1        3.424514
+    9                                The Good Dinosaur (2015) Adventure|Animation|Children|Comedy|Fantasy            1.0      4        3.376168
+   10                                             Antz (1998) Adventure|Animation|Children|Comedy|Fantasy            1.0     45        3.298573
+
+Similares a Heat (1995) (65 películas empatan en el puntaje máximo 1.0):
+ rank                         title                genres  content_score  count  weighted_score
+    1      Kill Bill: Vol. 1 (2003) Action|Crime|Thriller            1.0    131        3.923208
+    2            Baby Driver (2017) Action|Crime|Thriller            1.0      9        3.858033
+    3               Die Hard (1988) Action|Crime|Thriller            1.0    145        3.834514
+    4 French Connection, The (1971) Action|Crime|Thriller            1.0     39        3.784680
+    5  Bourne Supremacy, The (2004) Action|Crime|Thriller            1.0     75        3.747341
+    6 John Wick: Chapter Two (2017) Action|Crime|Thriller            1.0      7        3.737825
+    7   The Man from Nowhere (2010) Action|Crime|Thriller            1.0      3        3.701246
+    8            Dirty Harry (1971) Action|Crime|Thriller            1.0     20        3.672459
+    9  Bourne Ultimatum, The (2007) Action|Crime|Thriller            1.0     81        3.672244
+   10   The Raid 2: Berandal (2014) Action|Crime|Thriller            1.0      7        3.658878
+
+Similares a Sabrina (1995) (362 películas empatan en el puntaje máximo 1.0):
+ rank                                                title         genres  content_score  count  weighted_score
+    1 Amelie (Fabuleux destin d'Amélie Poulain, Le) (2001) Comedy|Romance            1.0    120        4.121354
+    2                               His Girl Friday (1940) Comedy|Romance            1.0     14        3.981488
+    3                         It Happened One Night (1934) Comedy|Romance            1.0     14        3.943026
+    4                       When Harry Met Sally... (1989) Comedy|Romance            1.0     85        3.814626
+    5                                    Adam's Rib (1949) Comedy|Romance            1.0      4        3.813668
+    6                                    Annie Hall (1977) Comedy|Romance            1.0     58        3.807410
+    7                        Much Ado About Nothing (1993) Comedy|Romance            1.0     43        3.745794
+    8                              Bringing Up Baby (1938) Comedy|Romance            1.0     18        3.717289
+    9                                  Belle époque (1992) Comedy|Romance            1.0      2        3.715620
+   10                     Forgetting Sarah Marshall (2008) Comedy|Romance            1.0     39        3.706249
+
+Películas sin valoraciones (cold start de ítems): 18

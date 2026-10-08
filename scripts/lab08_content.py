@@ -24,14 +24,17 @@ print("\nMismo ranking por media simple (sin suavizar):\n", by_mean[COLS])
 print(f"\nPelículas con una sola valoración: {single_rating}")
 
 # 2. Recomendación por contenido, con desempate por popularidad suavizada
-prior = ratings["rating"].mean()  # una película sin valoraciones recibe la media global
+# El suavizado se aplica a todas las películas valoradas (no solo a las que superan el umbral),
+# para que `count` sea el número real de valoraciones; una película sin valoraciones recibe la media global.
+prior = ratings["rating"].mean()
+popular_every = weighted_popularity(ratings, movies, quantile=0.80, min_count=0)
 recommender = ContentRecommender().fit(movies)
 frames, tie_rows = [], []
 for title in QUERIES:
     candidates = recommender.recommend(title, len(movies)).copy()
     candidates["content_score"] = candidates["content_score"].round(6)
     candidates = candidates.merge(
-        popular_all[["count", "weighted_score"]], left_on="movieId", right_index=True, how="left"
+        popular_every[["count", "weighted_score"]], left_on="movieId", right_index=True, how="left"
     )
     candidates["count"] = candidates["count"].fillna(0).astype(int)
     candidates["weighted_score"] = candidates["weighted_score"].fillna(prior)

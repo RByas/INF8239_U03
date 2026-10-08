@@ -6,5 +6,6 @@ data/raw/*
 !data/raw/.gitkeep
 models/*
 !models/.gitkeep
-reports/*
-!reports/.gitkeep
+# Copias locales del manual del aula virtual (contienen datos personales de la sesión)
+*.htm
+*_files/

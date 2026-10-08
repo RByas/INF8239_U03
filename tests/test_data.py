@@ -1,4 +1,3 @@
-import pandas as pd
 import pytest
 
 from inf8239_u03.data import validate_movielens

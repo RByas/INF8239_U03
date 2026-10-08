@@ -10,3 +10,8 @@ def test_content_excludes_query_and_returns_unique_items(sample_movies):
 def test_popularity_contains_weighted_score(sample_ratings, sample_movies):
     result = weighted_popularity(sample_ratings, sample_movies, quantile=0.0)
     assert "weighted_score" in result.columns
+
+
+def test_popularity_without_threshold_keeps_real_counts(sample_ratings, sample_movies):
+    result = weighted_popularity(sample_ratings, sample_movies, quantile=0.8, min_count=0)
+    assert result["count"].to_dict() == sample_ratings.groupby("movieId").size().to_dict()

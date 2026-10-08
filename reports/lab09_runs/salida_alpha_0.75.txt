@@ -1,0 +1,65 @@
+{
+  "rmse": 1.0264183126391635,
+  "rmse_global_mean": 1.1156660882916472,
+  "rmse_item_mean": 1.0502612591083604,
+  "hit_rate_at_10": 0.03747870528109029,
+  "precision_at_10": 0.003747870528109029,
+  "catalog_coverage": 0.07751778167199258,
+  "mean_item_popularity": 134.67461669505963,
+  "train_seconds": 45.84533080000074,
+  "model_size_kb": 1921.25,
+  "evaluated_users": 587,
+  "factors": 20,
+  "epochs": 12,
+  "alpha": 0.75,
+  "seed": 42,
+  "cold_start_policy": "popularidad por cantidad y media; no personalizada"
+}
+
+Comparación de estrategias (mismo corte y semilla):
+       method  alpha     rmse  hit_rate_at_10  precision_at_10  catalog_coverage  mean_item_popularity  train_seconds  model_size_kb
+   popularity    NaN      NaN        0.042589         0.004259          0.012164            233.318569       0.000000      75.789062
+      content    NaN      NaN        0.005111         0.000511          0.082569             32.436286       0.000000     310.156250
+collaborative    NaN 1.026418        0.037479         0.003748          0.074631            136.311244      45.845331    1611.093750
+       hybrid   0.75 1.026418        0.037479         0.003748          0.077518            134.674617      45.845331    1921.250000
+
+Recomendaciones híbridas de ejemplo por perfil:
+
+historial_amplio · userId=414 · historial=2697 · personalizada
+ rank                                               title  already_seen
+    1          Life Is Beautiful (La Vita è bella) (1997)         False
+    2                                 12 Angry Men (1957)         False
+    3                                 My Fair Lady (1964)         False
+    4                                 Intouchables (2011)         False
+    5                                   Annie Hall (1977)         False
+    6                      Philadelphia Story, The (1940)         False
+    7                                       Psycho (1960)         False
+    8 Lives of Others, The (Das leben der Anderen) (2006)         False
+    9                                      Ben-Hur (1959)         False
+   10                               Shutter Island (2010)         False
+
+historial_pequeno · userId=53 · historial=19 · personalizada
+ rank                        title  already_seen
+    1        Godfather, The (1972)         False
+    2            Annie Hall (1977)         False
+    3        Apocalypse Now (1979)         False
+    4   Slumdog Millionaire (2008)         False
+    5                 Rocky (1976)         False
+    6           Match Point (2005)         False
+    7            Goodfellas (1990)         False
+    8 2001: A Space Odyssey (1968)         False
+    9      Punch-Drunk Love (2002)         False
+   10          Notting Hill (1999)         False
+
+usuario_nuevo · userId=611 · historial=0 · NO personalizada (fallback de popularidad)
+ rank                                     title  already_seen
+    1                       Forrest Gump (1994)         False
+    2          Shawshank Redemption, The (1994)         False
+    3                       Pulp Fiction (1994)         False
+    4                        Matrix, The (1999)         False
+    5          Silence of the Lambs, The (1991)         False
+    6 Star Wars: Episode IV - A New Hope (1977)         False
+    7                         Braveheart (1995)         False
+    8                      Jurassic Park (1993)         False
+    9         Terminator 2: Judgment Day (1991)         False
+   10                         Fight Club (1999)         False

@@ -1,0 +1,65 @@
+{
+  "rmse": 1.0264183126391635,
+  "rmse_global_mean": 1.1156660882916472,
+  "rmse_item_mean": 1.0502612591083604,
+  "hit_rate_at_10": 0.03236797274275979,
+  "precision_at_10": 0.00323679727427598,
+  "catalog_coverage": 0.10648386764251108,
+  "mean_item_popularity": 95.96695059625213,
+  "train_seconds": 96.11892900000021,
+  "model_size_kb": 1921.25,
+  "evaluated_users": 587,
+  "factors": 20,
+  "epochs": 12,
+  "alpha": 0.25,
+  "seed": 42,
+  "cold_start_policy": "popularidad por cantidad y media; no personalizada"
+}
+
+Comparación de estrategias (mismo corte y semilla):
+       method  alpha     rmse  hit_rate_at_10  precision_at_10  catalog_coverage  mean_item_popularity  train_seconds  model_size_kb
+   popularity    NaN      NaN        0.042589         0.004259          0.012164            233.318569       0.000000      75.789062
+      content    NaN      NaN        0.005111         0.000511          0.082569             32.436286       0.000000     310.156250
+collaborative    NaN 1.026418        0.037479         0.003748          0.074631            136.311244      96.118929    1611.093750
+       hybrid   0.25 1.026418        0.032368         0.003237          0.106484             95.966951      96.118929    1921.250000
+
+Recomendaciones híbridas de ejemplo por perfil:
+
+historial_amplio · userId=414 · historial=2697 · personalizada
+ rank                                                 title  already_seen
+    1                                   Intouchables (2011)         False
+    2                                   12 Angry Men (1957)         False
+    3                        Philadelphia Story, The (1940)         False
+    4            Life Is Beautiful (La Vita è bella) (1997)         False
+    5                                   Modern Times (1936)         False
+    6           My Life as a Dog (Mitt liv som hund) (1985)         False
+    7                                      Manhattan (1979)         False
+    8                            King of Comedy, The (1983)         False
+    9                                    City Lights (1931)         False
+   10 Man Bites Dog (C'est arrivé près de chez vous) (1992)         False
+
+historial_pequeno · userId=53 · historial=19 · personalizada
+ rank                              title  already_seen
+    1            Punch-Drunk Love (2002)         False
+    2                 About a Boy (2002)         False
+    3                  Annie Hall (1977)         False
+    4                  Adaptation (2002)         False
+    5 Madness of King George, The (1994)         False
+    6         Slumdog Millionaire (2008)         False
+    7    Kind Hearts and Coronets (1949)         False
+    8                       Rocky (1976)         False
+    9                 Match Point (2005)         False
+   10              Godfather, The (1972)         False
+
+usuario_nuevo · userId=611 · historial=0 · NO personalizada (fallback de popularidad)
+ rank                                     title  already_seen
+    1                       Forrest Gump (1994)         False
+    2          Shawshank Redemption, The (1994)         False
+    3                       Pulp Fiction (1994)         False
+    4                        Matrix, The (1999)         False
+    5          Silence of the Lambs, The (1991)         False
+    6 Star Wars: Episode IV - A New Hope (1977)         False
+    7                         Braveheart (1995)         False
+    8                      Jurassic Park (1993)         False
+    9         Terminator 2: Judgment Day (1991)         False
+   10                         Fight Club (1999)         False

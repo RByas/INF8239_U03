@@ -1,0 +1,121 @@
+profile,userId,history_size,personalized,method,rank,movieId,title,already_seen
+historial_amplio,414,2697,True,popularity,1,1258,"Shining, The (1980)",False
+historial_amplio,414,2697,True,popularity,2,8368,Harry Potter and the Prisoner of Azkaban (2004),False
+historial_amplio,414,2697,True,popularity,3,19,Ace Ventura: When Nature Calls (1995),False
+historial_amplio,414,2697,True,popularity,4,2324,Life Is Beautiful (La Vita è bella) (1997),False
+historial_amplio,414,2697,True,popularity,5,410,Addams Family Values (1993),False
+historial_amplio,414,2697,True,popularity,6,1219,Psycho (1960),False
+historial_amplio,414,2697,True,popularity,7,317,"Santa Clause, The (1994)",False
+historial_amplio,414,2697,True,popularity,8,520,Robin Hood: Men in Tights (1993),False
+historial_amplio,414,2697,True,popularity,9,74458,Shutter Island (2010),False
+historial_amplio,414,2697,True,popularity,10,48385,Borat: Cultural Learnings of America for Make Benefit Glorious Nation of Kazakhstan (2006),False
+historial_amplio,414,2697,True,content,1,92259,Intouchables (2011),False
+historial_amplio,414,2697,True,content,2,272,"Madness of King George, The (1994)",False
+historial_amplio,414,2697,True,content,3,2431,Patch Adams (1998),False
+historial_amplio,414,2697,True,content,4,2352,"Big Chill, The (1983)",False
+historial_amplio,414,2697,True,content,5,1958,Terms of Endearment (1983),False
+historial_amplio,414,2697,True,content,6,34437,Broken Flowers (2005),False
+historial_amplio,414,2697,True,content,7,1292,Being There (1979),False
+historial_amplio,414,2697,True,content,8,371,"Paper, The (1994)",False
+historial_amplio,414,2697,True,content,9,194,Smoke (1995),False
+historial_amplio,414,2697,True,content,10,65230,Marley & Me (2008),False
+historial_amplio,414,2697,True,collaborative,1,2324,Life Is Beautiful (La Vita è bella) (1997),False
+historial_amplio,414,2697,True,collaborative,2,1203,12 Angry Men (1957),False
+historial_amplio,414,2697,True,collaborative,3,1219,Psycho (1960),False
+historial_amplio,414,2697,True,collaborative,4,914,My Fair Lady (1964),False
+historial_amplio,414,2697,True,collaborative,5,1230,Annie Hall (1977),False
+historial_amplio,414,2697,True,collaborative,6,246,Hoop Dreams (1994),False
+historial_amplio,414,2697,True,collaborative,7,1258,"Shining, The (1980)",False
+historial_amplio,414,2697,True,collaborative,8,922,Sunset Blvd. (a.k.a. Sunset Boulevard) (1950),False
+historial_amplio,414,2697,True,collaborative,9,31658,Howl's Moving Castle (Hauru no ugoku shiro) (2004),False
+historial_amplio,414,2697,True,collaborative,10,92259,Intouchables (2011),False
+historial_amplio,414,2697,True,hybrid,1,92259,Intouchables (2011),False
+historial_amplio,414,2697,True,hybrid,2,1203,12 Angry Men (1957),False
+historial_amplio,414,2697,True,hybrid,3,898,"Philadelphia Story, The (1940)",False
+historial_amplio,414,2697,True,hybrid,4,2324,Life Is Beautiful (La Vita è bella) (1997),False
+historial_amplio,414,2697,True,hybrid,5,3462,Modern Times (1936),False
+historial_amplio,414,2697,True,hybrid,6,1300,My Life as a Dog (Mitt liv som hund) (1985),False
+historial_amplio,414,2697,True,hybrid,7,1244,Manhattan (1979),False
+historial_amplio,414,2697,True,hybrid,8,6001,"King of Comedy, The (1983)",False
+historial_amplio,414,2697,True,hybrid,9,3307,City Lights (1931),False
+historial_amplio,414,2697,True,hybrid,10,3266,Man Bites Dog (C'est arrivé près de chez vous) (1992),False
+historial_pequeno,53,19,True,popularity,1,356,Forrest Gump (1994),False
+historial_pequeno,53,19,True,popularity,2,318,"Shawshank Redemption, The (1994)",False
+historial_pequeno,53,19,True,popularity,3,296,Pulp Fiction (1994),False
+historial_pequeno,53,19,True,popularity,4,2571,"Matrix, The (1999)",False
+historial_pequeno,53,19,True,popularity,5,593,"Silence of the Lambs, The (1991)",False
+historial_pequeno,53,19,True,popularity,6,260,Star Wars: Episode IV - A New Hope (1977),False
+historial_pequeno,53,19,True,popularity,7,110,Braveheart (1995),False
+historial_pequeno,53,19,True,popularity,8,480,Jurassic Park (1993),False
+historial_pequeno,53,19,True,popularity,9,589,Terminator 2: Judgment Day (1991),False
+historial_pequeno,53,19,True,popularity,10,2959,Fight Club (1999),False
+historial_pequeno,53,19,True,content,1,72142,Love Exposure (Ai No Mukidashi) (2008),False
+historial_pequeno,53,19,True,content,2,539,Sleepless in Seattle (1993),False
+historial_pequeno,53,19,True,content,3,1784,As Good as It Gets (1997),False
+historial_pequeno,53,19,True,content,4,2396,Shakespeare in Love (1998),False
+historial_pequeno,53,19,True,content,5,1247,"Graduate, The (1967)",False
+historial_pequeno,53,19,True,content,6,3481,High Fidelity (2000),False
+historial_pequeno,53,19,True,content,7,6711,Lost in Translation (2003),False
+historial_pequeno,53,19,True,content,8,11,"American President, The (1995)",False
+historial_pequeno,53,19,True,content,9,56367,Juno (2007),False
+historial_pequeno,53,19,True,content,10,4246,Bridget Jones's Diary (2001),False
+historial_pequeno,53,19,True,collaborative,1,858,"Godfather, The (1972)",False
+historial_pequeno,53,19,True,collaborative,2,1208,Apocalypse Now (1979),False
+historial_pequeno,53,19,True,collaborative,3,1230,Annie Hall (1977),False
+historial_pequeno,53,19,True,collaborative,4,63082,Slumdog Millionaire (2008),False
+historial_pequeno,53,19,True,collaborative,5,1954,Rocky (1976),False
+historial_pequeno,53,19,True,collaborative,6,1213,Goodfellas (1990),False
+historial_pequeno,53,19,True,collaborative,7,47,Seven (a.k.a. Se7en) (1995),False
+historial_pequeno,53,19,True,collaborative,8,924,2001: A Space Odyssey (1968),False
+historial_pequeno,53,19,True,collaborative,9,41285,Match Point (2005),False
+historial_pequeno,53,19,True,collaborative,10,593,"Silence of the Lambs, The (1991)",False
+historial_pequeno,53,19,True,hybrid,1,5673,Punch-Drunk Love (2002),False
+historial_pequeno,53,19,True,hybrid,2,5377,About a Boy (2002),False
+historial_pequeno,53,19,True,hybrid,3,1230,Annie Hall (1977),False
+historial_pequeno,53,19,True,hybrid,4,5902,Adaptation (2002),False
+historial_pequeno,53,19,True,hybrid,5,272,"Madness of King George, The (1994)",False
+historial_pequeno,53,19,True,hybrid,6,63082,Slumdog Millionaire (2008),False
+historial_pequeno,53,19,True,hybrid,7,6650,Kind Hearts and Coronets (1949),False
+historial_pequeno,53,19,True,hybrid,8,1954,Rocky (1976),False
+historial_pequeno,53,19,True,hybrid,9,41285,Match Point (2005),False
+historial_pequeno,53,19,True,hybrid,10,858,"Godfather, The (1972)",False
+usuario_nuevo,611,0,False,popularity,1,356,Forrest Gump (1994),False
+usuario_nuevo,611,0,False,popularity,2,318,"Shawshank Redemption, The (1994)",False
+usuario_nuevo,611,0,False,popularity,3,296,Pulp Fiction (1994),False
+usuario_nuevo,611,0,False,popularity,4,2571,"Matrix, The (1999)",False
+usuario_nuevo,611,0,False,popularity,5,593,"Silence of the Lambs, The (1991)",False
+usuario_nuevo,611,0,False,popularity,6,260,Star Wars: Episode IV - A New Hope (1977),False
+usuario_nuevo,611,0,False,popularity,7,110,Braveheart (1995),False
+usuario_nuevo,611,0,False,popularity,8,480,Jurassic Park (1993),False
+usuario_nuevo,611,0,False,popularity,9,589,Terminator 2: Judgment Day (1991),False
+usuario_nuevo,611,0,False,popularity,10,2959,Fight Club (1999),False
+usuario_nuevo,611,0,False,content,1,356,Forrest Gump (1994),False
+usuario_nuevo,611,0,False,content,2,318,"Shawshank Redemption, The (1994)",False
+usuario_nuevo,611,0,False,content,3,296,Pulp Fiction (1994),False
+usuario_nuevo,611,0,False,content,4,2571,"Matrix, The (1999)",False
+usuario_nuevo,611,0,False,content,5,593,"Silence of the Lambs, The (1991)",False
+usuario_nuevo,611,0,False,content,6,260,Star Wars: Episode IV - A New Hope (1977),False
+usuario_nuevo,611,0,False,content,7,110,Braveheart (1995),False
+usuario_nuevo,611,0,False,content,8,480,Jurassic Park (1993),False
+usuario_nuevo,611,0,False,content,9,589,Terminator 2: Judgment Day (1991),False
+usuario_nuevo,611,0,False,content,10,2959,Fight Club (1999),False
+usuario_nuevo,611,0,False,collaborative,1,356,Forrest Gump (1994),False
+usuario_nuevo,611,0,False,collaborative,2,318,"Shawshank Redemption, The (1994)",False
+usuario_nuevo,611,0,False,collaborative,3,296,Pulp Fiction (1994),False
+usuario_nuevo,611,0,False,collaborative,4,2571,"Matrix, The (1999)",False
+usuario_nuevo,611,0,False,collaborative,5,593,"Silence of the Lambs, The (1991)",False
+usuario_nuevo,611,0,False,collaborative,6,260,Star Wars: Episode IV - A New Hope (1977),False
+usuario_nuevo,611,0,False,collaborative,7,110,Braveheart (1995),False
+usuario_nuevo,611,0,False,collaborative,8,480,Jurassic Park (1993),False
+usuario_nuevo,611,0,False,collaborative,9,589,Terminator 2: Judgment Day (1991),False
+usuario_nuevo,611,0,False,collaborative,10,2959,Fight Club (1999),False
+usuario_nuevo,611,0,False,hybrid,1,356,Forrest Gump (1994),False
+usuario_nuevo,611,0,False,hybrid,2,318,"Shawshank Redemption, The (1994)",False
+usuario_nuevo,611,0,False,hybrid,3,296,Pulp Fiction (1994),False
+usuario_nuevo,611,0,False,hybrid,4,2571,"Matrix, The (1999)",False
+usuario_nuevo,611,0,False,hybrid,5,593,"Silence of the Lambs, The (1991)",False
+usuario_nuevo,611,0,False,hybrid,6,260,Star Wars: Episode IV - A New Hope (1977),False
+usuario_nuevo,611,0,False,hybrid,7,110,Braveheart (1995),False
+usuario_nuevo,611,0,False,hybrid,8,480,Jurassic Park (1993),False
+usuario_nuevo,611,0,False,hybrid,9,589,Terminator 2: Judgment Day (1991),False
+usuario_nuevo,611,0,False,hybrid,10,2959,Fight Club (1999),False

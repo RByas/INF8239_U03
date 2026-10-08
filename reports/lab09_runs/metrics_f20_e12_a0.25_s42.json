@@ -1,0 +1,17 @@
+{
+  "rmse": 1.0264183126391635,
+  "rmse_global_mean": 1.1156660882916472,
+  "rmse_item_mean": 1.0502612591083604,
+  "hit_rate_at_10": 0.03236797274275979,
+  "precision_at_10": 0.00323679727427598,
+  "catalog_coverage": 0.10648386764251108,
+  "mean_item_popularity": 95.96695059625213,
+  "train_seconds": 96.11892900000021,
+  "model_size_kb": 1921.25,
+  "evaluated_users": 587,
+  "factors": 20,
+  "epochs": 12,
+  "alpha": 0.25,
+  "seed": 42,
+  "cold_start_policy": "popularidad por cantidad y media; no personalizada"
+}
